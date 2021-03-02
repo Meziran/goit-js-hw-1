@@ -1,16 +1,12 @@
-const userInput = document.querySelector("#validation-input");
-const checkLength = Number(userInput.getAttribute("data-length"));
+const validationRef = document.querySelector("#validation-input");
+validationRef.addEventListener("blur", checkValidation);
 
-const toValidate = (newEvent) => {
-  const measurement = newEvent.currentTarget.value.length;
-  if (measurement === checkLength) {
-    userInput.classList.remove("valid");
-    userInput.classList.remove("invalid");
-    userInput.classList.add("valid");
+function checkValidation() {
+  if (validationRef.value.length === Number(validationRef.dataset.length)) {
+    validationRef.classList.add("valid");
+    validationRef.classList.remove("invalid");
   } else {
-    userInput.classList.remove("valid");
-    userInput.classList.remove("invalid");
-    userInput.classList.add("invalid");
+    validationRef.classList.add("invalid");
+    validationRef.classList.remove("valid");
   }
-};
-userInput.addEventListener("change", toValidate);
+}

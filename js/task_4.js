@@ -1,16 +1,13 @@
-let counterValue = Number(document.querySelector("#value").textContent);
-const plusBtn = document.querySelector('button[data-action="increment"]');
-const minusBtn = document.querySelector('button[data-action="decrement"]');
+const counterValue = document.querySelector("#value");
+const increaseBtn = document.querySelector('button[data-action="increment"]');
+const decreaseBtn = document.querySelector('button[data-action="decrement"]');
 
-const increment = () => {
-  counterValue += 1;
-  document.querySelector("#value").textContent = counterValue;
+const increase = () => {
+  counterValue.textContent = Number(counterValue.textContent) + 1;
 };
-const decrement = () => {
-  counterValue -= 1;
-  document.querySelector("#value").textContent = counterValue;
+const decrease = () => {
+  counterValue.textContent = Number(counterValue.textContent) - 1;
 };
 
-plusBtn.addEventListener("click", increment);
-
-minusBtn.addEventListener("click", decrement);
+increaseBtn.addEventListener("click", increase);
+decreaseBtn.addEventListener("click", decrease);
